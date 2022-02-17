@@ -1,1 +1,4 @@
-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
+esarandon@YogaSlim7:~/.ssh$ sudo ssh ubuntu@16.170.249.205 -i production_flask.pem
+
+username: esarandon@gmail.com
+password: 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
