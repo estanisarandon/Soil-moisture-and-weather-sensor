@@ -7,16 +7,19 @@
         table {
             width: 80%;
             border: 1px black solid;
-            text-align: center;
+        }
 
+        td {
+            border: 1px black solid;
         }
     </style>
 </head>
 <body>
+    <h1>Sensor Data</h1>
     <table>
         <tr>
             <th>Sensor</th>
-            <th>Data & Time</th>
+            <th>Date & Time</th>
             <th>Temp Reading</th>
         </tr>
         {% for reading in readings %}
@@ -33,5 +36,6 @@
             </tr>
         {% endfor %}
     </table>
+
 </body>
 </html>
