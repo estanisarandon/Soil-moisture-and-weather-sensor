@@ -5,25 +5,35 @@
     <title>Temp Readings</title>
     <style>
         table {
-            width: 80%;
-            border: 1px black solid;
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
         }
-
-        td {
-            border: 1px black solid;
+        
+        td, th {          
+          text-align: left, center;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #D6EEEE;
         }
     </style>
 </head>
 <body>
     <h1>Sensor Data Readings</h1>
-    <table>
+    
+    <table>        
         <tr>
             <th>Sensor</th>
             <th>Date & Time</th>
+            <th>Humidity Reading</th>
             <th>Temp Reading</th>
-        </tr>
+            <th>Weather Today</th>            
+
+        </tr>        
         {% for reading in readings %}
-            <tr>
+            <tr>                
                 <td>
                     {{ reading['sensor'] }}
                 </td>
@@ -31,8 +41,14 @@
                     {{ reading['datetime'] }}
                 </td>
                 <td>
+                    {{ reading['humidity'] }}
+                </td>
+                <td>
                     {{ reading['temp'] }}
                 </td>
+                <td>
+                    {{ reading['weather'] }}
+                </td>                
             </tr>
         {% endfor %}
     </table>
