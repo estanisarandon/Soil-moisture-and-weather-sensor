@@ -1,57 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Temp Readings</title>
+  </head>
+  <body>
+    <div class="limiter">
+      <div class="container-table100">
+        <div class="wrap-table100">
+          <div class="table100 ver1 m-b-110">
+            <div class="table100-head">
+              <table class="sortable">
+                <tr>
+                  <th class="column1">Sensor</th>
+                  <th class="column2">Date & Time</th>
+                  <th class="column3">Humidity</th>
+                  <th class="column4">Temperature</th>
+                  <th class="column5">Weather</th>
+                </tr>
+                {% for reading in readings %}
+                <tr>
+                  <td>{{ reading['sensor'] }}</td>
+                  <td>{{ reading['datetime'] }}</td>
+                  <td>{{ reading['humidity'] }}</td>
+                  <td>{{ reading['temp'] }}</td>
+                  <td>{{ reading['weather'] }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <style>
-        table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-        
-        td, th {          
-          text-align: left, center;
-          padding: 8px;
-        }
-        
-        tr:nth-child(even) {
-          background-color: #D6EEEE;
-        }
+      body,
+      html {
+        height: 100%;
+        font-family: sans-serif;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th {
+        text-align: left, center;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 20px;
+        color: #fff;
+        line-height: 1.4;
+        background-color: #6c7ae0;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f8f6ff;
+      }
+
+      td {
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 17px;
+        color: #808080;
+        line-height: 1.4;
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+
+      .limiter {
+        width: 1366px;
+        margin: 0 auto;
+      }
+
+      .container-table100 {
+        width: 100%;
+        background: #fff;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 33px 30px;
+      }
+
+      .wrap-table100 {
+        width: 1170px;
+      }
+
+      .column1 {
+        width: 28%;
+        padding-left: 30px;
+      }
+
+      .column2 {
+        width: 13%;
+      }
+
+      .column3 {
+        width: 19%;
+      }
+
+      .column4 {
+        width: 19%;
+      }
+
+      .column5 {
+        width: 22%;
+        padding-right: 30px;
+      }
+
+      .table100-head th {
+        padding-top: 18px;
+        padding-bottom: 18px;
+      }
+
+      .table100.ver1 {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+        -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+        -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+      }
+
+      .table100.ver1 .ps__rail-y {
+        right: 5px;
+      }
+
+      .table100.ver1 .ps__rail-y::before {
+        background-color: #ebebeb;
+      }
+
+      .table100.ver1 .ps__rail-y .ps__thumb-y::before {
+        background-color: #cccccc;
+      }
     </style>
-</head>
-<body>
-    <h1>Sensor Data Readings</h1>
-    
-    <table>        
-        <tr>
-            <th>Sensor</th>
-            <th>Date & Time</th>
-            <th>Humidity Reading</th>
-            <th>Temp Reading</th>
-            <th>Weather Today</th>            
-
-        </tr>        
-        {% for reading in readings %}
-            <tr>                
-                <td>
-                    {{ reading['sensor'] }}
-                </td>
-                <td>
-                    {{ reading['datetime'] }}
-                </td>
-                <td>
-                    {{ reading['humidity'] }}
-                </td>
-                <td>
-                    {{ reading['temp'] }}
-                </td>
-                <td>
-                    {{ reading['weather'] }}
-                </td>                
-            </tr>
-        {% endfor %}
-    </table>
-
-</body>
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+  </body>
 </html>
